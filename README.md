@@ -1,7 +1,7 @@
 **Nginx version 1.18 with WAF (Web Application Firewall)**
 
--  ModSecurity version 2.9.3 
--  OWASP CRS ( ModSecurity Core Rule Set)
+-  ModSecurity Version 2.9.3 
+-  OWASP CRS ( ModSecurity Core Rule Set) Version 3
 
 The Nginx module is contained within the Apache archive package.
 Usually you must first compile ModSecurity with the --enable-standalone-module flag and then compile the Nginx code to use it.
