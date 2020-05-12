@@ -41,9 +41,10 @@ RUN mkdir /etc/nginx/modsecurity-data && \
     chown nginx: /etc/nginx/modsecurity-data && \
     cat /usr/src/owasp-modsecurity-crs/crs-setup.conf.example /usr/src/owasp-modsecurity-crs/rules/*.conf > /etc/nginx/modsecurity.conf && \
     cp /usr/src/owasp-modsecurity-crs/rules/*.data /etc/nginx/ && \
-    sed -i -e 's%location / {%location / {\n        ModSecurityEnabled on;\n        ModSecurityConfig modsecurity.conf;%' /etc/nginx/conf.d/default.conf && \
+    sed -i -e 's%location / {%location / {\n        ModSecurityEnabled on;\n        ModSecurityConfig /etc/nginx/modsecurity.conf;%' /etc/nginx/conf.d/default.conf && \
     echo "SecAuditLog /var/log/modsec_audit.log" >> /etc/nginx/modsecurity.conf && \
     echo "SecRuleEngine On" >> /etc/nginx/modsecurity.conf && \
+    echo "SecStatusEngine On" >> /etc/nginx/modsecurity.conf && \
     echo "SecDataDir /etc/nginx/modsecurity-data" >> /etc/nginx/modsecurity.conf
 
 CMD ["nginx", "-g", "daemon off;"]
