@@ -1,6 +1,8 @@
-FROM nginx:1.18
+ARG NGINX_VERSION=1.18
 
-MAINTAINER Serghei Spilchin <spilchin.serghei@gmail.com>
+FROM nginx:${NGINX_VERSION}
+
+LABEL maintainer="spilchin.serghei@gmail.com"
 
 ENV MODSECURITY_VERSION 2.9.3
 
